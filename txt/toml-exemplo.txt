@@ -1,0 +1,4 @@
+nome = "João"
+idade = 30
+ativo = true
+conta = $9/3+21^1$
