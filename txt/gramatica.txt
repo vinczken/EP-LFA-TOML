@@ -8,14 +8,15 @@ Valor ->  Table(Objeto)
         | Null
 
 
-Table ->  Titulo\nAtributo
+Table ->  [Titulo]\nAtributo
         | Texto = { Atributo }
 
-Titulo ->  [Texto]
-         | [Titulo]
+Titulo ->  Texto
+         | Texto.Titulo
 
 Atributo ->  Texto = Valor
            | Texto = Valor\nAtributo
+           | Texto.Atributo
 
 Texto ->  [a-z]
         | [a-z]Texto
@@ -45,27 +46,23 @@ MultiLineLiteral -> ''' Texto '''
 
 
 
-Número ->  +Tipos 
+Número ->  SinalTipos
          | Tipos
-         | -Tipos
 
-Tipos ->  Integer
-        | Float
+Sinal ->  +
+        | -
 
-Integer ->  Nums
-          | Nums_Integer
+Tipos ->  Digito
+        | Digito_Tipos
+        | Digito.Float
 
-Float ->  Integer.FloatAux
-        | FloatAux
+Float ->  Digito
+        | DigitoFloat
+        | SinalFloat
+        | (e|E) Float
 
-FloatAux ->  Nums
-           | NumsFloatAux
-           | -FloatAux
-           | +FloatAux
-           | eFloatAux
-
-Nums ->  [ 0, 9 ]
-       | [ 1, 9 ]Nums
+Digito ->  [ 0, 9 ]
+         | [ 1, 9 ]Digito
 
 
 
