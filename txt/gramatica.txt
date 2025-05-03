@@ -1,0 +1,72 @@
+Gramática:
+
+Valor ->  Table(Objeto) 
+        | Array
+        | String
+        | Número
+        | Bool
+        | Null
+
+
+Table ->  Titulo\nAtributo
+        | Texto = { Atributo }
+
+Titulo -> [Texto]
+
+Atributo ->  Texto = Valor
+           | Texto = Valor\nAtributo
+
+Texto ->  [a-z]
+        | [a-z]Texto
+
+
+
+Array ->  [ Elemento ]
+        | [ ]
+
+Elemento ->  Valor
+           | Valor, Elemento
+
+
+
+String ->  Basico
+         | MultiLineBasic
+         | Literal
+         | MultiLineLiteral
+
+Basico ->  " Texto "
+
+MultiLineBasic -> """ Texto """
+
+Literal -> ' Texto '
+
+MultiLineLiteral -> ''' Texto '''
+
+
+
+Número ->  +Tipos 
+         | Tipos
+         | -Tipos
+
+Tipos ->  Integer
+        | Float
+
+Integer ->  Nums
+          | Nums_Integer
+
+Float ->  Integer.FloatAux
+        | FloatAux
+
+FloatAux ->  Nums
+           | NumsFloatAux
+           | -FloatAux
+           | +FloatAux
+           | eFloatAux
+
+Nums ->  [ 0, 9 ]
+       | [ 1, 9 ]Nums
+
+
+
+Bool ->  true
+       | false
