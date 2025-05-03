@@ -11,7 +11,8 @@ Valor ->  Table(Objeto)
 Table ->  Titulo\nAtributo
         | Texto = { Atributo }
 
-Titulo -> [Texto]
+Titulo ->  [Texto]
+         | [Titulo]
 
 Atributo ->  Texto = Valor
            | Texto = Valor\nAtributo
